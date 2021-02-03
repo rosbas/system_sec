@@ -29,16 +29,14 @@ options = {
   'l': ['1'],
   'i': ['1']}
 
-start = time.time()
+start = time.time()  #timeit for better performance
 
 fr = open('text.txt', 'r')
-fw = open('dictionary.txt', 'w')
 Lines = fr.readlines()
-
+fr.close()
 #store all data
 password_list = [] #password combination list
 # hash_list = [] #hash
-
 
 #read word from text list
 for l in Lines:                             # password
@@ -49,12 +47,12 @@ for l in Lines:                             # password
         for f in f_list:
             password_list.append((f.strip(),hsha1(f.strip())))
 
+fw = open('dictionary.txt', 'w')
 for i in password_list:
     fw.write(i[0] + "   " + i[1] + '\n')
 
 end = time.time()
  
 print('Time: ' + str(end - start) + '\n')
-fr.close()
 fw.close()
 print("Done")

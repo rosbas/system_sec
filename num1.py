@@ -13,6 +13,7 @@ def hsha1(t):   #hash in sha1 format
 
 fr = open('text.txt', 'r')
 Lines = fr.readlines()
+fr.close()
 
 for line in Lines:
     w = map(''.join, product(*((c.upper(),c.lower()) for c in line)))
